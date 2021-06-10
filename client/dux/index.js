@@ -1,13 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import user from './user';
 
-const dummyReducer = (state = {}, action) => state;
+const reducer = combineReducers({ user });
 
-const store = createStore(
-  dummyReducer,
-  applyMiddleware(thunkMiddleware, createLogger()
-  )
-);
+const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true })));
+
+const store = createStore(reducer, middleware);
 
 export default store;
