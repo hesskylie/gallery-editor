@@ -12,7 +12,7 @@ const defaultUser = {};
 
 export const me = () => async dispatch => {
   try {
-    const { data } = await axios.get('/auth/me');
+    const { data } = await axios.get('/api/auth/me');
     dispatch(getUser(data || defaultUser));
   } catch {
     console.error(err);
@@ -30,7 +30,7 @@ export const editUser = (id, user) => async () => {
 export const auth = (email, password, name, method) => async dispatch => {
   let res;
   try {
-    res = await axios.post(`/auth/${method}`, { email, password, name });
+    res = await axios.post(`/api/auth/${method}`, { email, password, name });
   } catch (authError) {
     return dispatch(getUser({ error: authError }));
   }
@@ -45,7 +45,7 @@ export const auth = (email, password, name, method) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await axios.post('/auth/logout');
+    await axios.post('/api/auth/logout');
     dispatch(removeUser());
     //history.push('/login');
   } catch (err) {

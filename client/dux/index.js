@@ -11,3 +11,4 @@ const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLo
 const store = createStore(reducer, middleware);
 
 export default store;
+export * from './user';

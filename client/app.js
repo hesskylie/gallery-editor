@@ -1,11 +1,13 @@
 import React from 'react';
-import { AllGalleries } from './components'
+import { Login, Signup, AllGalleries } from './components'
 
 const App = () => {
 
   return (
     <div>
     <h1>Gallery Editor</h1>
+      <Login />
+      <Signup />
     <AllGalleries />
     </div>
   )

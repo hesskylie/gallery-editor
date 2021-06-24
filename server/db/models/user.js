@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 const crypto = require('crypto');
 
-const User = db.define('sample', {
+const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
