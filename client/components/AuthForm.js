@@ -4,6 +4,7 @@ import { auth } from '../dux';
 
 const AuthForm = props => {
   const { name, displayName, handleSubmit, error } = props;
+  console.log(props);
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
