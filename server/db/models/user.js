@@ -8,6 +8,10 @@ const User = db.define('user', {
     unique: true,
     allowNull: false
   },
+  username: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   password: {
     type: Sequelize.STRING,
     get() {
@@ -20,9 +24,6 @@ const User = db.define('user', {
     return () => this.getDataValue('salt')
   },
   googleId: {
-    type: Sequelize.STRING
-  },
-  name: {
     type: Sequelize.STRING
   }
 }

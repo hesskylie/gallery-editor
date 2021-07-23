@@ -1,23 +1,25 @@
 import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { Login, Signup, AllGalleries } from './components';
+import { HomePage, Login, Signup, AllGalleries, UserHome } from './components';
 import { me } from './dux';
 
 const Routes = props => {
   useEffect(() => {
-    props.loadInitialData()
+    props.loadUser()
   }, [])
 
   const { isLoggedIn } = props;
 
   return (
     <Switch>
+      <Route exact path="/" component={HomePage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       {isLoggedIn && (
         <Switch>
           <Route path="/galleries" component={AllGalleries} />
+          <Route path="/home" component={UserHome} />
         </Switch>
       )}
     <Route component={Login} />
@@ -31,7 +33,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData() {
+    loadUser() {
       dispatch(me());
     }
   }

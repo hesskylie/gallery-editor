@@ -1,5 +1,5 @@
 import axios from 'axios';
-//import history from '../history'
+import history from '../history'
 
 
 const GET_USER = 'GET_USER';
@@ -37,7 +37,7 @@ export const auth = (email, password, name, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data));
-        //history.push('/home);
+        history.push('/home');
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr);
   }
@@ -47,7 +47,7 @@ export const logout = () => async dispatch => {
   try {
     await axios.post('/api/auth/logout');
     dispatch(removeUser());
-    //history.push('/login');
+    history.push('/login');
   } catch (err) {
     console.error(err);
   }

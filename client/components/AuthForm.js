@@ -4,7 +4,6 @@ import { auth } from '../dux';
 
 const AuthForm = props => {
   const { name, displayName, handleSubmit, error } = props;
-  console.log(props);
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -14,8 +13,8 @@ const AuthForm = props => {
         <input required name="password" type="password" />
         {displayName === 'Sign Up' ? (
           <div>
-            <label htmlFor="userName">Name</label>
-            <input required name="userName" type="text" />
+            <label htmlFor="username">Name</label>
+            <input required name="username" type="text" />
           </div>
         ) : null}
 
@@ -44,11 +43,11 @@ const mapLogin = state => ({
      const formName = evt.target.name;
      const email = evt.target.email.value;
      const password = evt.target.password.value;
-     let userName;
+     let username;
      if (formName === 'signup') {
-       userName = evt.target.userName.value;
+       username = evt.target.username.value;
      }
-     dispatch(auth(email, password, userName, formName))
+     dispatch(auth(email, password, username, formName))
    }
  });
 

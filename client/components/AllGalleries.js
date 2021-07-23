@@ -9,4 +9,4 @@ const AllGalleries = () => {
   )
 }
 
-export default AllGalleries
+export default AllGalleries;
